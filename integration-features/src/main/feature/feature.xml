@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.0.0">
+
+    <feature name="store-a" description="Store A - Fiap" version="${project.version}">
+        <details>Store A - Fiap</details>
+        <feature>camel-core</feature>
+        <feature>camel-spring</feature>
+        <feature>camel-mongodb</feature>
+        <feature>camel-netty4-http</feature>
+        <feature>camel-jackson</feature>
+        <feature>camel-swagger-java</feature>
+        <bundle>mvn:br.com.fiap.fuse/store-a/1.0-SNAPSHOT</bundle>
+    </feature>
+
+	<feature name="store-b" description="Store B - Fiap" version="${project.version}">
+		<details>Store B - Fiap</details>
+        <feature>camel-core</feature>
+        <feature>camel-spring</feature>
+        <feature>camel-sql</feature>
+        <feature>camel-netty4-http</feature>
+        <feature>camel-jackson</feature>
+        <feature>camel-swagger-java</feature>
+        <bundle>wrap:mvn:org.postgresql/postgresql/42.1.1$Export-Package=org.postgresql.*;version=42.1.1</bundle>
+        <bundle>mvn:br.com.fiap.fuse/store-b/1.0-SNAPSHOT</bundle>
+	</feature>
+	
+	<feature name="integration-aggregator" description="Integration - Fiap" version="${project.version}">
+		<details>Integration - Fiap</details>
+		<feature>camel-core</feature>
+        <feature>camel-spring</feature>
+        <feature>camel-http4</feature>
+        <feature>camel-netty4-http</feature>
+        <feature>camel-jackson</feature>
+        <feature>camel-swagger-java</feature>
+        <bundle>mvn:br.com.fiap.fuse/integration-bundle/1.0-SNAPSHOT</bundle>
+	</feature>
+</features>
